@@ -3,111 +3,35 @@ const client = new Discord.Client();
 var prefix = "&"
 var adminprefix = '&'
 
-
-//bc
-
 client.on("message", message => {
-    if (message.content.startsWith("&obc")) {
-                 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' ');
-  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
-  m.send(`${argresult}\n ${m}`);
-  })
+    if (message.content.startsWith(prefix + "obc")) { ///@» MHSTR 🇮🇶#1119
+                 if (!message.member.hasPermission("ADMINISTRATOR"))  return; //@» MHSTR 🇮🇶#1119
+  let args = message.content.split(" ").slice(1); ///@» MHSTR 🇮🇶#1119
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => { //@» MHSTR 🇮🇶#1119
+  m.send(`${argresult}\n ${m}`); ///@» MHSTR 🇮🇶#1119
+  }) /// @» MHSTR 🇮🇶#1119
   message.channel.send(`\`${message.guild.members.filter( m => m.presence.status !== 'all').size}\`:mailbox:  عدد المستلمين `);
-  message.delete();
-  };
-  });
-
-
-//bc online
-
-
-  var prefix = "&";
-
+  message.delete(); ///@» MHSTR 🇮🇶#1119
+  }; ///@» MHSTR 🇮🇶#1119
+  }); //// @» MHSTR 🇮🇶#1119
+ 
+ 
+ 
   client.on("message", message => {
-  
-              if (message.content.startsWith(prefix + "bc")) {
-                           if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  ///@» MHSTR 🇮🇶#1119
+              if (message.content.startsWith(prefix + "bc")) { //@» MHSTR 🇮🇶#1119
+                           if (!message.member.hasPermission("ADMINISTRATOR"))  return; //@» MHSTR 🇮🇶#1119
     let args = message.content.split(" ").slice(1);
-    var argresult = args.join(' '); 
+    var argresult = args.join(' '); // @» MHSTR 🇮🇶#1119
     message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
-   m.send(`${argresult}\n ${m}`);
-  })
-   message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :mailbox:  عدد المستلمين `); 
-   message.delete(); 
-  };     
-  });
+   m.send(`${argresult}\n ${m}`); //@» MHSTR 🇮🇶#1119
+  }) ///@» MHSTR 🇮🇶#1119
+   message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :mailbox:  عدد المستلمين `);
+   message.delete(); //@» MHSTR 🇮🇶#1119
+  };     /// @» MHSTR 🇮🇶#1119
+  }); ///@» MHSTR 🇮🇶#1119
 
-client.on('message', message => {
-    var  user = message.mentions.users.first() || message.author;
-if (message.content.startsWith("&avatar")) {
-message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
-}
-});
-
-client.on('ready',  () => {
-    console.log('تم تشغيل :Broadcast  ');
-    console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
-    console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
-    console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
-  });
-
-  client.on('message', message => {
-    if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('Ladminbc')){
-if(!message.author.id === '476185102922285066') return;
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
-
-  client.on('message', msg => {
-    if(msg.content === '&help')
-    msg.reply('تم ارسال لك هيلب ف خاص  :white_check_mark:')
-  });
-  
-  
-  client.on("message", message => {
-    if (message.content === "&help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`**Help|هيلب
-
-       &obc | لأرسال برود كاست للكل
-
-       &bc  |  لأرسال برود كاست للأونلاين
-
-       &adminbc | برودكاست عادي
-
-                ادمن
-
-
-       &setname | تغير اسم بوت
-
-       &setava | تغير صورة بوت
-
-       &setg   | تغير بلاينق بوت
-
-       &leave  | لاخراج بوت من سيرفر
-       
-       &setw   | لتغير وتشنيق بوت
-
-       &setl   | لتغير ليستينق بوت
-
-       &sets   | لتغير ستريمينق بوت
-
-       ** `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });
-
-const developers = ["570963117631078412" "530914058526916611"]
+const developers = ["570963117631078412"]
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
